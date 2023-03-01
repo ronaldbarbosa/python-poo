@@ -30,11 +30,11 @@ print("\n=============================================================\n")
 
 print("{} - cliente desde: ".format(cliente1.nome), end="")
 print("{}/{}/{}".format(conta1.data_abertura.dia, conta1.data_abertura.mes, conta1.data_abertura.ano))
-conta1.historico.imprime()
+conta1._historico.imprime()
 print("\n=============================================================\n")
 print("{} - cliente desde: ".format(cliente2.nome), end="")
 print("{}/{}/{}".format(conta2.data_abertura.dia, conta2.data_abertura.mes, conta2.data_abertura.ano))
-conta2.historico.imprime()
+conta2._historico.imprime()
 
 print("\n=============================================================\n")
 
