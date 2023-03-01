@@ -36,3 +36,6 @@ print("{} - cliente desde: ".format(cliente2.nome), end="")
 print("{}/{}/{}".format(conta2.data_abertura.dia, conta2.data_abertura.mes, conta2.data_abertura.ano))
 conta2.historico.imprime()
 
+print("\n=============================================================\n")
+
+print("Total de contas: {}".format(Conta.get_total_contas()))
