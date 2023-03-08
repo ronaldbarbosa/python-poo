@@ -1,5 +1,6 @@
 from Historico import Historico
 from Data import Data
+from AtualizadorDeContas import AtualizadorDeContas
 
 class Conta:
     # Método que inicializa o objeto
@@ -61,6 +62,11 @@ class Conta:
             destino.deposita(valor)
             self._historico.trasacoes.append("Transferência de {} para a conta {}".format(valor, destino._numero))
             return True
+
+    def atualiza(self, taxa):
+        self._saldo	+= self._saldo * taxa
+        
+
     
     # Métodos de classe servem para definir um método que opera na classe, e não em instâncias
     # cls = objeto do tipo class
@@ -73,3 +79,6 @@ class Conta:
     # @staticmethod
     # def get_total_contas():
     #    return Conta._total_contas
+
+    def __str__(self):
+        return f"\nDados da conta:\nNumero: {self._numero}\nTitular: {self._titular.nome}\nSaldo: {self._saldo}\nLimite: {self._limite}"

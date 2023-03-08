@@ -1,5 +1,10 @@
 from Cliente import Cliente
 from Conta import Conta
+from Funcionario import Funcionario
+from Gerente import Gerente
+from ControleDeBonificacoes import ControleDeBonificacoes
+from ContaPoupanca import ContaPoupanca
+from ContaCorrente import ContaCorrente
 
 # conta = Conta()
 # print(type(conta))
@@ -39,3 +44,41 @@ conta2._historico.imprime()
 print("\n=============================================================\n")
 
 print("Total de contas: {}".format(Conta.get_total_contas()))
+
+print("\n=============================================================\n")
+print("\n=============================================================\n")
+
+funcionario = Funcionario("Ronald", "11111111111", 2000.0)
+gerente = Gerente("Amelia", '22222222222', 5000.0, '123', 15)
+print(vars(funcionario))
+print(funcionario.get_bonificacao())
+print(vars(gerente))
+print(gerente.get_bonificacao())
+
+print("\n=============================================================\n")
+controle = ControleDeBonificacoes()
+controle.registra(funcionario)
+controle.registra(gerente)
+print(f"Total: {controle.total_bonificacoes}")
+
+cliente3 = Cliente("Rony", "Elson", "10101010101010")
+controle.registra(cliente3)
+
+print("\n=============================================================\n")
+
+cliente_c = Cliente("Weverton", "Pereira", "99998989898")
+c = Conta("645-3", cliente_c, 1000.0)
+cliente_cp = Cliente("Jailson", "Barros", "2938475495")
+cp = ContaPoupanca("987-2", cliente_cp, 1000.0)
+cliente_cc = Cliente("Fernando", "Prass", "84375349869")
+cc = ContaCorrente("754-5", cliente_cc, 1000.0)
+
+c.atualiza(0.01)
+cc.atualiza(0.01)
+cp.atualiza(0.01)
+
+print(c.pega_saldo)
+print(cp.pega_saldo)
+print(cc.pega_saldo)
+
+print(cc)
