@@ -1,8 +1,10 @@
+import abc
+
 from Historico import Historico
 from Data import Data
 from AtualizadorDeContas import AtualizadorDeContas
 
-class Conta:
+class Conta(abc.ABC):
     # Método que inicializa o objeto
     # Esse não é o método construtor. O método __new__() é o construtor, e é chamado antes do __init__() pelo interpretador do python
     # O método __init__() recebe a instância (self) do método __new__() 
@@ -63,8 +65,9 @@ class Conta:
             self._historico.trasacoes.append("Transferência de {} para a conta {}".format(valor, destino._numero))
             return True
 
+    @abc.abstractmethod
     def atualiza(self, taxa):
-        self._saldo	+= self._saldo * taxa
+        pass
         
 
     
@@ -81,4 +84,4 @@ class Conta:
     #    return Conta._total_contas
 
     def __str__(self):
-        return f"\nDados da conta:\nNumero: {self._numero}\nTitular: {self._titular.nome}\nSaldo: {self._saldo}\nLimite: {self._limite}"
+        return f"\nDados da conta:\nNumero: {self._numero}\nTitular: {self._titular.nome}\nTipo de conta: {self._tipo}\nSaldo: {self._saldo}\nLimite: {self._limite}"

@@ -20,4 +20,4 @@ class Gerente(Funcionario):
 
 # Ou aproveitar a implementação da classe mãe com um novo resultado:
     def get_bonificacao(self):
-        return super().get_bonificacao() + 1000.0
+        return self._salario * 0.10 + 1000.0
